@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مولّد الصور بالذكاء الاصطناعي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">🎨</span>
+      <div>
+        <h1>مولّد الصور بالذكاء الاصطناعي</h1>
+        <p class="tagline">اوصف الصورة التي تتخيلها، وسيقوم الذكاء الاصطناعي برسمها</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="generator-card">
+      <form id="generate-form">
+        <label class="field-label" for="prompt">وصف الصورة</label>
+        <textarea
+          id="prompt"
+          class="prompt-input"
+          rows="3"
+          maxlength="500"
+          placeholder="مثال: قطة على سطح منزلي عند الغروب، ألوان دافئة، تفاصيل عالية"
+          required
+        ></textarea>
+
+        <div class="options-row">
+          <div class="option">
+            <label class="field-label" for="size">المقاس</label>
+            <select id="size" class="select">
+              <option value="1024x1024">مربع — 1024×1024</option>
+              <option value="1280x720">عريض — 1280×720</option>
+              <option value="900x1600">طولي — 900×1600</option>
+            </select>
+          </div>
+          <div class="option">
+            <label class="field-label" for="count">عدد الصور</label>
+            <select id="count" class="select">
+              <option value="1">صورة واحدة</option>
+              <option value="2">صورتان</option>
+              <option value="4">أربع صور</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" id="generate-btn" class="generate-btn">
+          <span class="btn-text">✨ توليد الصورة</span>
+          <span class="btn-loader" hidden>⏳ جارٍ التوليد…</span>
+        </button>
+      </form>
+    </section>
+
+    <section class="results-section">
+      <h2 id="results-title" class="section-title" hidden>النتيجة</h2>
+      <div id="results" class="results-grid"></div>
+      <div id="error-box" class="error-box" hidden></div>
+    </section>
+
+    <section class="history-section">
+      <div class="history-header">
+        <h2 class="section-title">سجل الصور المولّدة</h2>
+        <button id="clear-history" class="clear-btn" hidden>🗑️ حذف السجل</button>
+      </div>
+      <p id="history-empty" class="empty-note">لم تُولّد أي صور بعد. اكتب وصفاً في الأعلى واضغط «توليد الصورة».</p>
+      <div id="history" class="results-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>تُولّد الصور مجاناً عبر <a href="https://pollinations.ai" target="_blank" rel="noopener">Pollinations.ai</a> — لا يتطلب الموقع أي تسجيل أو مفتاح API.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
